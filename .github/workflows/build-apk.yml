@@ -28,17 +28,11 @@ jobs:
       - name: Sync Capacitor Android
         run: npx cap sync android
 
-      - name: Set up Java 21
+      - name: Set up Java 17
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '21'
-
-      - name: Regenerate Gradle wrapper
-        working-directory: android
-        run: |
-          rm -rf gradle/wrapper/gradle-wrapper.jar
-          gradle wrapper --gradle-version=8.14.3
+          java-version: '17'
 
       - name: Make gradlew executable
         run: chmod +x android/gradlew
